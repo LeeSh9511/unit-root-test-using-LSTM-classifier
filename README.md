@@ -10,7 +10,7 @@ The results suggest that deep learning-based classifiers offer a flexible and po
 
 
 # 📘 LSTM 분류기를 이용한 단위근 개수 예측과 비이론적 시계열에의 적용 평가
-###Predicting the Number of Unit Roots Using LSTM Classifiers and Evaluating Applicability to Non-Theoretical Time Series
+##Predicting the Number of Unit Roots Using LSTM Classifiers and Evaluating Applicability to Non-Theoretical Time Series
 
 본 논문은 전통적인 단위근 검정(unit root test)인 ADF(Augmented Dickey-Fuller) 검정을 LSTM 기반 딥러닝 분류기로 구현하여, 시계열 정상성 판별에 새로운 접근을 제안합니다.
 또한 단위근 개수 예측과 비이론적 시계열에의 적용을 통해 분류기의 일반화 성능을 평가합니다.
