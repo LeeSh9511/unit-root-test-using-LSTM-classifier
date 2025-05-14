@@ -11,7 +11,7 @@
 - 시계열의 길이는 100으로 동일하며, training set,validation set, test set은 각각 100,000/30,000/10,000 샘플.
 ### 2️⃣ LSTM Classifier 구조 및 hyperparameter 설정
 - 입력 벡터: 길이 100의 시계열 입력 벡터.
-- 모델 구조: LSTM(hidden state=30) → Dense Layer(Softmax)
+- 모델 구조: LSTM(hidden state=30) → Dense Layer(2,Softmax)
 - 분류 방식:
   - **Binary**: ADF검정에서 가설 검정을 하는 것과 동일함.  H0(비정상) vs H1(정상)
   - **3-Class**: 시계열 입력 벡터에 내재된 단위근 개수 (0, 1, 2) 예측.
@@ -38,13 +38,20 @@
 - 각 `p`에 대해 10,000개 샘플 생성
 - 6개의 combine test dataset에 대한 LSTM classifier와 ADF 검정의 성능 비교.
 <img src="./figures/combine_plot.png" style="width:50%;"/>
+
 - classifier의 accuracy는 6개의 testset에서 대체로 일정하고, 준수함. 반면에 ADF 검정은 유의수준에 따라, 데이터셋의 단위근 시계열 구성 비율에 따라 큰 변동을 보임.
 - 유의수준 1% ADF 검정의 accuracy가 단위근 시계열의 비율이 높아질 수록 accuracy가 상승하는 것을 확인할 수 있음. 이는 유의수준 1%에서 검정이 극도로 보수적인 경향을 보여, 단위근 시계열의 비중이 높을 수록 accuracy가 높게 나타나는 것으로 보임.
 
 ### 5️⃣ 3-class classifier로의 확장을 통한 단위근 개수 예측.
+- 모델 구조: LSTM(hidden state=30) + Dense Layer(3,Softmax)
+- hyperparameter 설정은 동일
+- 1️⃣의 데이터 생성 구조에 따라 ur2(단위근 2개),ur1(단위근 1개),ur0(정상 시계열)을 각 10,000샘플씩 생성하고 이에 대한 3-class classifier의 accuracy를 확인함.
+<img src="./figures/barchartf.png" style="width:50%;"/>
+
+<img src="./figures/conf.png" style="width:50%;"/>
+- 3-Class classifier의 confusion matrix.
 
 
-- 3-Class 분류 혼동 행렬: `figures/confusion_matrix.png`
 
 > 📁 모든 결과 그래프는 `figures/` 폴더에 포함되어 있습니다.
 
