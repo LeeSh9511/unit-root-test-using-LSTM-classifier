@@ -1,3 +1,14 @@
+## 📝 Abstract
+
+This study proposes an LSTM-based deep learning classifier as an alternative approach to the traditional Augmented Dickey-Fuller (ADF) test for identifying unit roots in time series data. The model is designed not only to detect the presence of unit roots but also to estimate their count, enabling a more nuanced interpretation of nonstationarity.
+
+Simulated AR(2) time series were generated under controlled settings, including both theoretical and hybrid (non-theoretical) configurations. Experimental results show that the proposed classifier outperforms ADF in accuracy and robustness across various test scenarios, including mixed-series inputs. 
+
+Notably, the classifier demonstrates stable performance even when applied to non-theoretical or partially stationary series, where ADF tends to vary significantly. The model's extension to a 3-class classification task further confirms its ability to distinguish between series with zero, one, or two unit roots.
+
+The results suggest that deep learning-based classifiers offer a flexible and powerful alternative for structural inference in time series analysis, especially in environments where classical assumptions do not hold.
+
+
 # 📘 LSTM 분류기를 이용한 단위근 개수 예측과 비이론적 시계열에의 적용 평가
 ###Predicting the Number of Unit Roots Using LSTM Classifiers and Evaluating Applicability to Non-Theoretical Time Series
 
@@ -28,7 +39,7 @@
   - **정확도 (Accuracy)**
   - **경험적 사이즈 (Empirical Size)**: 단위근 시계열을 정상 시계열로 오분류한 비율
   - **경험적 검정력 (Empirical Power)**: 정상 시계열을 정상 시계열로 올바르게 분류한 비율
-  <img src="./figures/model_eval.PNG" style="width:30%;"/>
+  <img src="./figures/model_eval.PNG" style="width:40%;"/>
 - 전체적으로 LSTM classifier의 성능이 ADF 검정에 비해 우수함.
 
 ### 4️⃣ 모델의 일반화 성능 평가를 위한 combine dataset 구성(비이론적 테스트 데이터셋 생성)
@@ -59,7 +70,18 @@
 -  단위근 시계열인 (ur1, ur2) class 총 20,000개의 단위근 시계열 중 분류기가 이를 ur2로 판단한 경우는 10,331건, ur1으로 판단한 경우는 9,303건, ur0로 잘못 분류한 경우는 단 366건에 불과함.
 - 이는 분류기가 단위근이 존재하는 시계열을 정상 시계열로 오분류하는 경우가 드물며, 시계열의 비정상성을 본래보다 다소 강하게 판단하는 경향을 보였음을 시사함.
 
+## ✅ 결론 및 향후 연구 방향
 
+본 연구는 전통적인 단위근 검정인 ADF에 대한 대안으로, LSTM 기반 딥러닝 분류기를 적용하여 단위근의 존재 여부뿐 아니라 개수까지 예측 가능한 구조를 제안하였습니다. 실험 결과, 제안한 분류기는 이론적 AR(2) 시계열뿐 아니라 혼합 구조의 비이론적 시계열에서도 일관된 성능을 보였으며, ADF 검정보다 높은 정확도를 나타냈습니다.
+
+특히, 3-Class 분류 구조로 확장한 실험에서 단위근이 2개인 경우 ADF와 큰 성능 차이를 보임을 확인하였으며, 분류기는 정상 시계열로의 오분류를 최소화하며 시계열의 비정상성을 다소 강하게 인식하는 경향을 확인할 수 있었습니다.
+
+이러한 접근은 전통적 통계 검정과 달리, 검정 통계량의 정의나 분포 가정 없이 학습 기반으로 정상성 판별 문제를 해결할 수 있다는 점에서 의미가 있습니다. 다만, 학습 구조에 대한 사전 설계가 요구되며, 이는 동시에 다양한 후속 연구 방향으로의 확장을 가능하게 합니다.
+
+### 🔭 향후 연구 방향
+- **AR 계수 추출 구간 조정**: 단위근 경계 인근에서의 분류 민감도 평가
+- **다양한 차수의 단위근 구성 실험**: 차분 차수 추정 가능성 탐색
+- **실제 경제 데이터셋 적용**: 모델의 실용성 및 robustness 검토
 
 > 📁 모든 결과 그래프는 `figures/` 폴더에 포함되어 있습니다.
 
