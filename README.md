@@ -27,8 +27,8 @@
   - **정확도 (Accuracy)**
   - **경험적 사이즈 (Empirical Size)**: 단위근 시계열을 정상 시계열로 오분류한 비율
   - **경험적 검정력 (Empirical Power)**: 정상 시계열을 정상 시계열로 올바르게 분류한 비율
-  - ![그래프] (./figures/model_eval.png)
-  - 전체적으로 LSTM classifier의 성능이 ADF 검정에 비해 우수함.
+  <img src="./figures/model_eval.png" style="width:50%;"/>
+- 전체적으로 LSTM classifier의 성능이 ADF 검정에 비해 우수함.
 
 ### 4️⃣ 모델의 일반화 성능 평가를 위한 combine dataset 구성(비이론적 테스트 데이터셋 생성)
 -  정상+단위근을 앞/뒤 절반으로 결합하여 생성한 단위근 시계열.  
@@ -37,7 +37,7 @@
 - `p ∈ {0.15, 0.3, 0.45, 0.6, 0.75, 0.9}`
 - 각 `p`에 대해 10,000개 샘플 생성
 - 6개의 combine test dataset에 대한 LSTM classifier와 ADF 검정의 성능 비교.
-- ![그래프](./figures/combine_plot.png)
+<img src="./figures/combine_plot.png" style="width:50%;"/>
 - classifier의 accuracy는 6개의 testset에서 대체로 일정하고, 준수함. 반면에 ADF 검정은 유의수준에 따라, 데이터셋의 단위근 시계열 구성 비율에 따라 큰 변동을 보임.
 - 유의수준 1% ADF 검정의 accuracy가 단위근 시계열의 비율이 높아질 수록 accuracy가 상승하는 것을 확인할 수 있음. 이는 유의수준 1%에서 검정이 극도로 보수적인 경향을 보여, 단위근 시계열의 비중이 높을 수록 accuracy가 높게 나타나는 것으로 보임.
 
