@@ -18,8 +18,8 @@ The results suggest that deep learning-based classifiers offer a flexible and po
 ### 1️⃣ simulation data 생성 구조.
 - **정상 시계열**: `Z_t = φ₁Z_{t−1} + φ₂Z_{t−2} + ε_t`, `ε_t ~ WN(0,1), φ₁, φ₂~ i.i.d U(-0.9, 0.9)' under stationarity condition.
 - **단위근 시계열**: 정상 시계열을 누적합한 이론적인 단위근 시계열 
-  - 1차 누적합 → 단위근 1개  : Z^{(1)}_{t} = \sum_{i=1}^{t} Z_{i}
-  - 2차 누적합 → 단위근 2개  : Z^{(2)}_{t} = \sum_{i=1}^{t} Z^{(1)}_{i}
+  - 1차 누적합 → 단위근 1개
+  - 2차 누적합 → 단위근 2개
 - 시계열의 길이는 100으로 동일하며, training set,validation set, test set은 각각 100,000/30,000/10,000 샘플.
 ### 2️⃣ LSTM Classifier 구조 및 hyperparameter 설정
 - 입력 벡터: 길이 100의 시계열 입력 벡터.
@@ -80,7 +80,8 @@ The results suggest that deep learning-based classifiers offer a flexible and po
 
 ### 🔭 향후 연구 방향
 - **AR 계수 추출 구간 조정**: 단위근 경계 인근에서의 분류 민감도 평가
-- **다양한 차수의 단위근 구성 실험**: 차분 차수 추정 가능성 탐색
+- **다양한 단위근 개수의 시계열로 모델 학습**: 차분 차수 추정 가능성 탐색
+- **ARIMA등 다양한 시계열 모형으로 data generator 확장**
 - **실제 경제 데이터셋 적용**: 모델의 실용성 및 robustness 검토
 
 > 📁 모든 결과 그래프는 `figures/` 폴더에 포함되어 있습니다.
