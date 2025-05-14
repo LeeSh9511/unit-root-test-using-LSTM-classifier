@@ -36,10 +36,7 @@
 - 단위근 시계열 비율 `p`를 변화시켜 혼합 테스트셋 구성  
 - `p ∈ {0.15, 0.3, 0.45, 0.6, 0.75, 0.9}`
 - 각 `p`에 대해 10,000개 샘플 생성
-- (https://github.com/LeeSh9511/unit-root-test-using-LSTM-classifier/blob/main/figures/barchartf.png)
-(https://github.com/사용자명/저장소명/blob/main/figures/barchart.png?raw=true)
-(./figures/barchartf.png)
-![그래프](./figures/barchartf.png)
+- ![그래프](./figures/barchartf.png)
 
 ### 📌 참고 이미지
 
