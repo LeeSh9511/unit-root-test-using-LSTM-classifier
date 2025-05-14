@@ -1,10 +1,10 @@
-## 🔬 실험 (Experiments)
+##LSTM 분류기를 이용한 단위근 개수 예측과 비이론적 시계열에의 적용 평가
+(Predicting the Number of Unit Roots Using LSTM Classifiers and Evaluating Applicability to Non-Theoretical Time Series)
 
-본 연구에서는 단위근이 존재하는 시계열과 정상 시계열을 분류하는 LSTM 기반 딥러닝 분류기를 설계하였으며, 다음과 같은 절차로 실험을 구성하였습니다.
+- 본 연구에서는 대표적인 단위근 검정인 ADF 검정을 딥러닝 방법론인 LSTM 구조를 통해 구현함으로써 거기서 통계적 인사이트를 얻고자함.
 
-### 1️⃣ 시계열 데이터 생성
-
-- **정상 시계열**: AR(2) 모형 기반, 계수 φ₁, φ₂를 Uniform(-0.9, 0.9)에서 추출, 정상성 조건 만족
+### 1️⃣ simulation data 생성 구조.
+- **정상 시계열**: Z_t = φ₁Z_{t−1} + φ₂Z_{t−2} + ε_t, ε_t ~ WN(0,1),  φ₁, φ₂~ i.i.d U(-0.9, 0.9) under stationarity condition.
 - **단위근 시계열**: 위 정상 시계열에 대해 누적합 연산  
   - 1차 누적합 → 단위근 1개  
   - 2차 누적합 → 단위근 2개
