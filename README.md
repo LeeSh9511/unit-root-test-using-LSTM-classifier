@@ -9,8 +9,7 @@
   - 1차 누적합 → 단위근 1개  : Z^{(1)}_{t} = \sum_{i=1}^{t} Z_{i}
   - 2차 누적합 → 단위근 2개  : Z^{(2)}_{t} = \sum_{i=1}^{t} Z^{(1)}_{i}
 - 시계열의 길이는 100으로 동일하며, training set,validation set, test set은 각각 100,000/30,000/10,000 샘플.
-### 2️⃣ 분류기 구조 및 학습 설정
-
+### 2️⃣ LSTM Classifier 구조 및 hyperparameter 설정
 - 입력 벡터: 길이 100의 시계열 입력 벡터.
 - 모델 구조: LSTM(hidden state=30) → Dense Layer(Softmax)
 - 분류 방식:
@@ -28,20 +27,23 @@
   - **정확도 (Accuracy)**
   - **경험적 사이즈 (Empirical Size)**: 단위근 시계열을 정상 시계열로 오분류한 비율
   - **경험적 검정력 (Empirical Power)**: 정상 시계열을 정상 시계열로 올바르게 분류한 비율
+  - ![그래프] (./figures/model_eval.png)
+  - 전체적으로 LSTM classifier의 성능이 ADF 검정에 비해 우수함.
 
 ### 4️⃣ 모델의 일반화 성능 평가를 위한 combine dataset 구성(비이론적 테스트 데이터셋 생성)
 -  정상+단위근을 앞/뒤 절반으로 결합하여 생성한 단위근 시계열.  
 -  앞 50% 정상 + 뒤 50% 단위근 (또는 그 반대)
-
-- 단위근 시계열 비율 `p`를 변화시켜 혼합 테스트셋 구성  
+- 여기에 더해 단위근 시계열 비율 `p`를 변화시키는 조건을 더함으로써 combine test dataset 구성  
 - `p ∈ {0.15, 0.3, 0.45, 0.6, 0.75, 0.9}`
 - 각 `p`에 대해 10,000개 샘플 생성
-- ![그래프](./figures/barchartf.png)
+- 6개의 combine test dataset에 대한 LSTM classifier와 ADF 검정의 성능 비교.
+- ![그래프](./figures/combine_plot.png)
+- classifier의 accuracy는 6개의 testset에서 대체로 일정하고, 준수함. 반면에 ADF 검정은 유의수준에 따라, 데이터셋의 단위근 시계열 구성 비율에 따라 큰 변동을 보임.
+- 유의수준 1% ADF 검정의 accuracy가 단위근 시계열의 비율이 높아질 수록 accuracy가 상승하는 것을 확인할 수 있음. 이는 유의수준 1%에서 검정이 극도로 보수적인 경향을 보여, 단위근 시계열의 비중이 높을 수록 accuracy가 높게 나타나는 것으로 보임.
 
-### 📌 참고 이미지
+### 5️⃣ 3-class classifier로의 확장을 통한 단위근 개수 예측.
 
-- 학습 손실/정확도 그래프: `figures/loss_acc.png`
-- 단위근 비율별 정확도 비교: `figures/accuracy_p.png`
+
 - 3-Class 분류 혼동 행렬: `figures/confusion_matrix.png`
 
 > 📁 모든 결과 그래프는 `figures/` 폴더에 포함되어 있습니다.
