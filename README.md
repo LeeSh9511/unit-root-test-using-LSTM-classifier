@@ -39,6 +39,8 @@
 - (https://github.com/LeeSh9511/unit-root-test-using-LSTM-classifier/blob/main/figures/barchartf.png)
 (https://github.com/사용자명/저장소명/blob/main/figures/barchart.png?raw=true)
 (./figures/barchartf.png)
+![그래프](./figures/barchartf.png)
+
 ### 📌 참고 이미지
 
 - 학습 손실/정확도 그래프: `figures/loss_acc.png`
