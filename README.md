@@ -27,7 +27,7 @@
   - **정확도 (Accuracy)**
   - **경험적 사이즈 (Empirical Size)**: 단위근 시계열을 정상 시계열로 오분류한 비율
   - **경험적 검정력 (Empirical Power)**: 정상 시계열을 정상 시계열로 올바르게 분류한 비율
-  <img src="./figures/model_eval.png" style="width:50%;"/>
+  <img src="./figures/model_eval.PNG" style="width:50%;"/>
 - 전체적으로 LSTM classifier의 성능이 ADF 검정에 비해 우수함.
 
 ### 4️⃣ 모델의 일반화 성능 평가를 위한 combine dataset 구성(비이론적 테스트 데이터셋 생성)
