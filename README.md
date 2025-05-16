@@ -1,4 +1,4 @@
-## 📝 Abstract
+##  Abstract
 
 This study proposes an LSTM-based deep learning classifier as an alternative approach to the traditional Augmented Dickey-Fuller (ADF) test for identifying unit roots in time series data. The model is designed not only to detect the presence of unit roots but also to estimate their count, enabling a more nuanced interpretation of nonstationarity.
 
@@ -9,7 +9,7 @@ Notably, the classifier demonstrates stable performance even when applied to non
 The results suggest that deep learning-based classifiers offer a flexible and powerful alternative for structural inference in time series analysis, especially in environments where classical assumptions do not hold.
 
 
-# 📘 LSTM 분류기를 이용한 단위근 개수 예측과 비이론적 시계열에의 적용 평가
+## LSTM 분류기를 이용한 단위근 개수 예측과 비이론적 시계열에의 적용 평가
 Predicting the Number of Unit Roots Using LSTM Classifiers and Evaluating Applicability to Non-Theoretical Time Series
 
 - 본 프로젝트는 지도교수님의 컨펌을 받은 석사 논문 기반이며, 현재 학회 투고를 준비 중인 연구를 코드로 정리한 자료입니다.
