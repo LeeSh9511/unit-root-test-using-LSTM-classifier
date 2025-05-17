@@ -62,14 +62,14 @@ Predicting the Number of Unit Roots Using LSTM Classifiers and Evaluating Applic
 - 1️⃣의 데이터 생성 구조에 따라 ur2(단위근 2개),ur1(단위근 1개),ur0(정상 시계열)을 각 10,000샘플씩 생성하고 이에 대한 3-class classifier의 accuracy를 확인함.
 
 <img src="./figures/barchartf.png" style="width:50%;"/>
-- ur2 class에서 classifier와 ADF 검정의 차이가 뚜렷하게 나타남. ADF 검정은 해당클래스에서유의수준에따라성능이급격히저하되어
+- ur2 class에서 classifier와 ADF 검정의 차이가 뚜렷하게 나타남. ADF 검정은 해당 클래스에서 유의 수준에 따라 성능이 급격히 저하되어
 최저 66.6%까지 감소한 반면, 제안한 분류기는 97.5%의 높은 정확도를 안정적으로 유지함.
 
 <img src="./figures/conf.png" style="width:50%;"/>
 
 - 3-Class classifier의 confusion matrix heatmap.
 - ur0 클래스는 98% 이상 정확하게 분류됨
--  단위근 시계열인 (ur1, ur2) class 총 20,000개의 단위근 시계열 중 분류기가 이를 ur2로 판단한 경우는 10,331건, ur1으로 판단한 경우는 9,303건, ur0로 잘못 분류한 경우는 단 366건에 불과함.
+- 단위근 시계열인 (ur1, ur2) class 총 20,000개의 단위근 시계열 중 분류기가 이를 ur2로 판단한 경우는 10,331건, ur1으로 판단한 경우는 9,303건, ur0로 잘못 분류한 경우는 단 366건에 불과함.
 - 이는 분류기가 단위근이 존재하는 시계열을 정상 시계열로 오분류하는 경우가 드물며, 시계열의 비정상성을 본래보다 다소 강하게 판단하는 경향을 보였음을 시사함.
 
 ## ✅ 결론 및 향후 연구 방향
